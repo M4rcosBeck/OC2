@@ -1,5 +1,5 @@
 # CRIAÇÃO DE PROCESSOS
----
+
 * Os processos (pai) podem criar outros processos (filhos), que, por sua vez criam outros processos, formando uma árvore de processos.
 * **Execução:** Pais e Filhos são executados concorrentementes.
 * Espaços de Endereços:
@@ -14,7 +14,7 @@
 pid_t fork(void);
 ```
 * Quando um processo é *"forked"* (bifurcado), um novo  processo é criado.
-* O segmento de dados e códigoss do novo processo é o mesmo do original.
+* O segmento de dados e códigos do novo processo é o mesmo do original.
 * Uma entrada na tabela de processos é criada para o novo processo.
 * Valor de Retorno:
     * ZERO no processo filho.
