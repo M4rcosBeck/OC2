@@ -33,3 +33,15 @@ pthread_t pthread_self(void);
 * Uma thread pode terminar seu fluxo de controle sem terminar o processo inteiro de três formas:
     1. A thread pode retornar da rotina inicial (o valor de retorno é o código de saída da thread).
     2. A thread pode ser cancelada por outra thread do mesmo processo.
+
+```
+#inlcude <pthread.h>
+void pthread_exit(void *rval_ptr);
+int pthread_join(pthread_t thread, void **rval_ptr);
+int pthread_cancel(pthread_t tid);
+```
+* O `rval_ptr` é um ponteiro disponibilizado a outras threads do processo através da chamada à função `pthread_join`;
+* Ao chamar `pthread_join`, a thread é bloqueada até da thread especificada terminar.
+* Se a thread retornar da sua rotina inicial, `rval_ptr` irá conter o código de retorno.
+* Se a thread foi cancelada, será retornado o valor `PTHREAD_CANCELED`.
+* Uma thread pode cancelar outra thread do mesmo processo através da função `pthread_cancel`.
